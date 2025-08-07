@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import CartWidget from "./CartWidget.jsx";
 
 function Navbar(){
     const [categorias, setCategorias] = useState([]);
@@ -33,6 +34,9 @@ function Navbar(){
                     </div>
                 </li>
                 <li><Link to="/Contacto">Contacto</Link></li>
+                <li>
+                    <CartWidget/>
+                </li>
             </ul>
         </nav>
     );
