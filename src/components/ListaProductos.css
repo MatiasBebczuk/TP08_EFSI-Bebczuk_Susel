@@ -1,0 +1,6 @@
+.listaproductos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    width: 95vw;
+}

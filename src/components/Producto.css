@@ -1,0 +1,26 @@
+.card{
+    width: 18rem;
+    background-color: white;
+    padding: 1%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+
+.card-img-top{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 100%;
+}
+
+.card-text, .card-title{
+    color: black;
+}
+
+.card-title:hover{
+    color: rgb(94, 89, 89);
+}
+
+.card-img-top:hover{
+    cursor: pointer;
+    opacity: 70%;
+}

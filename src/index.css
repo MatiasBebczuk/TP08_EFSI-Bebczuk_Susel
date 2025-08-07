@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
+html {
+  background-color: #133EAA !important;
+  font-family: "Funnel Display" !important;
+}
+
+body {
+  margin: 0;
+  padding-top: 60px;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 95vw;
+}
+
+@media(max-width: 390px){
+  body{
+    padding-top: 80px;
+  }
+}
+
+main{
+  min-height: 90vh;
+  padding-left: 20px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, button {
+  color: white;
+  font-family: "Funnel Display";
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover{
+  color: rgb(206, 200, 200) !important;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+input, select, textarea{
+  font-family: "Funnel Display";
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 11px;
+  width: 100%;
+  background-color: white;
+}
+
+select, .form button {
+  width: 103.5%;
+}
+
+button {
+  font-family: "Funnel Display";
+  background-color: #1d33fc;
+  border: 1px solid rgb(39, 60, 255);
+  border-radius: 10px;
+  padding: 15px 56px;
+  text-align: center;
+  font-size: 17px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(65, 83, 253);
+}

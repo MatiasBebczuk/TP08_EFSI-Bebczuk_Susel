@@ -1,0 +1,29 @@
+.productodetalle{
+    display: flex;
+    border: 10px solid white;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.productodetalle img{
+    width: 50%;
+}
+
+.reviews{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review{
+    background-color: rgba(106, 131, 198, 0.588);
+    padding: 3%;
+    border-radius: 15px;
+}
+
+.botonescompra{
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
