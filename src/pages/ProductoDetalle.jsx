@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./ProductoDetalle.css";
+import { CartContext } from "../contexts/CartContext.jsx";
 
 export default function ProductoDetalle(){
     let { IdProducto } = useParams();
     const [producto, setProducto] = useState([]);
+    const cartContext = useContext(CartContext);
     useEffect(() => {
         async function fetch(){
             await axios.get(`https://dummyjson.com/products/${IdProducto}`)
@@ -38,7 +40,7 @@ export default function ProductoDetalle(){
 
             <div className="botonescompra">
                 <button>Comprar</button>
-                <button>Añadir al carrito</button>
+                <button onClick={() => cartContext.addToCart(producto)}>Añadir al carrito</button>
             </div>
         </div>
     </div>);

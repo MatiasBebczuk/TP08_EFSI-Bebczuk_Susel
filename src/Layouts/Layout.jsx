@@ -1,18 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import { createContext, useState } from "react";
+import CartContextProvider from "../contexts/CartContext.jsx";
 
-export const CartContext = createContext();
 export default function Layout(){
-    const productosCarrito = useState([]);
     return (
-        <CartContext.Provider value={productosCarrito}>
+        <CartContextProvider>
             <Navbar/>
             <main>
                 <Outlet/>
             </main>
             <Footer/>
-        </CartContext.Provider>
+        </CartContextProvider>
     )
 };
