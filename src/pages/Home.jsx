@@ -24,7 +24,6 @@ export default function Home(){
     };
     
     return (<>
-        <h2 style={{textAlign: "center", marginBottom: 10}}>Bienvenido a SUS & BEB, el mejor mayorista de productos variados</h2>
         <div id="carrusel-container" className="carrusel-container" style={{marginBottom: 10}}>
             <div className="controls-and-carrusel">
                 <button onClick={() => cambiarImg(-1)} style={{border: 0, backgroundColor: "rgba(0,0,0,0)"}} id="btn-previous">
