@@ -1,6 +1,8 @@
 .listaproductos{
     display: flex;
     flex-wrap: wrap;
-    gap: 2%;
-    width: 95vw;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
 }
