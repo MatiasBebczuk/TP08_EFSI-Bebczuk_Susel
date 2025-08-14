@@ -1,10 +1,14 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import ProductoCarrito from "../components/ProductoCarrito.jsx";
 import { CartContext } from "../contexts/CartContext.jsx";
 
 export default function CartWidget(){
   const cartContext = useContext(CartContext);
   const [productosCarrito, setProductosCarrito] = cartContext.state;
+  const [cantidad, setCantidad] = useState((cartContext.productosCarrito || [{}]).reduce((prev, curr) => prev + (curr.quantity || 1), 0));
+  useEffect(() => {
+    setCantidad(productosCarrito.reduce((prev, curr) => prev + (curr.quantity || 1), 0));
+  }, [productosCarrito]);
 
   return(<>
       <div id="carrito" className="modal">
@@ -20,6 +24,7 @@ export default function CartWidget(){
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
           <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
         </svg>
+        <p>{cantidad}</p>
       </button>
   </>);
 }
