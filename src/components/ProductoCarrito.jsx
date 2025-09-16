@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import "./Producto.css";
 import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext.jsx";
+import { shape, number, string } from "prop-types";
 
-export default function ProductoCarrito({producto}){
+function ProductoCarrito({producto}){
   const cartContext = useContext(CartContext);
 
   return (
@@ -21,3 +22,14 @@ export default function ProductoCarrito({producto}){
   </div>
   );
 }
+
+ProductoCarrito.propTypes = {
+  producto: shape({
+    id: number.isRequired,
+    thumbnail: string,
+    title: string.isRequired,
+    price: number.isRequired
+  }).isRequired
+};
+
+export default ProductoCarrito;

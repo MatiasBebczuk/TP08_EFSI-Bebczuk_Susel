@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext.jsx";
 import "./Producto.css";
 import { useContext } from "react";
+import { number, string } from "prop-types";
 
-export default function Producto({producto}){
+function Producto({producto}){
   const cartContext = useContext(CartContext);
     return (<div className="card">
     <Link to={"/ProductoDetalle/" + producto.id}><img src={producto.thumbnail || ""} className="card-img-top"/></Link>
@@ -18,3 +19,12 @@ export default function Producto({producto}){
     </div>
   </div>);
 }
+
+Producto.propTypes = {
+  id: number.isRequired,
+  thumbnail: string,
+  title: string.isRequired,
+  price: number.isRequired
+};
+
+export default Producto;

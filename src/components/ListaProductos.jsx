@@ -1,7 +1,8 @@
 import Producto from "./Producto";
 import "./ListaProductos.css";
+import { arrayOf, shape, number, string } from "prop-types";
 
-export default function ListaProductos({productos}){
+function ListaProductos({productos}){
     if(productos.length == 0){
         return <></>;
     }
@@ -14,3 +15,14 @@ export default function ListaProductos({productos}){
         </div>
     );
 }
+
+ListaProductos.propTypes = {
+    productos: arrayOf(shape({
+        id: number.isRequired,
+        thumbnail: string,
+        title: string.isRequired,
+        price: number.isRequired
+    })).isRequired
+};
+
+export default ListaProductos;
