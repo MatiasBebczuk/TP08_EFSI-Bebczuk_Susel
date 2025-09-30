@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
-import ListaProductos from "../components/ListaProductos";
+import ListaProductos from "../components/ListaProductos.tsx";
 import axios from "axios";
 import "./Home.css";
+
+interface IProducto{
+    id: number,
+    thumbnail?: string,
+    title: string,
+    price: number
+};
 
 export default function Home(){
     const [productos, setProductos] = useState([]);
@@ -10,13 +17,13 @@ export default function Home(){
     useEffect(() => { //funcion de los 5 productos para nuestros productos
         async function fetch(){
             await axios.get("https://dummyjson.com/products")
-            .then(resp => setProductos(resp.data.products.filter(_ => Math.random() >= 0.5).slice(0, 5)))
+            .then(resp => setProductos(resp.data.products.filter((data: IProducto) => Math.random() >= 0.5).slice(0, 5)))
         }
 
         fetch();
     }, []);
 
-    const cambiarImg = num => {
+    const cambiarImg = (num: number) => {
         let nuevonum = activeImg + num;
         if(nuevonum > 2) nuevonum = 0;
         if(nuevonum < 0) nuevonum = 2;

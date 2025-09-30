@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
-import ListaProductos from "../components/ListaProductos";
+import ListaProductos from "../components/ListaProductos.tsx";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+
+interface IProducto{
+    id: number,
+    thumbnail?: string,
+    title: string,
+    price: number,
+    category: string
+};
 
 export default function Categoria(){
     const { IdCategoria } = useParams(); // Se llama ID categoria pero es un string con el nombre de ésta
@@ -12,7 +20,7 @@ export default function Categoria(){
         async function fetch(){
             await axios.get("https://dummyjson.com/products")
             .then(resp => {
-                let productosCategoria = resp.data.products.filter(el => el.category == IdCategoria);
+                let productosCategoria = resp.data.products.filter((el: IProducto) => el.category == IdCategoria);
                 if(productosCategoria.length == 0){
                     setError(true);
                     return;

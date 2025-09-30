@@ -2,7 +2,15 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./ProductoDetalle.css";
-import { CartContext } from "../contexts/CartContext.jsx";
+import { CartContext } from "../contexts/CartContext.tsx";
+
+interface IProducto{
+    id: number,
+    thumbnail?: string,
+    title: string,
+    price: number,
+    category: string
+};
 
 export default function ProductoDetalle(){
     let { IdProducto } = useParams();

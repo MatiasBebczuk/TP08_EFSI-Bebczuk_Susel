@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ListaProductos from "../components/ListaProductos";
+import ListaProductos from "../components/ListaProductos.tsx";
 import axios from "axios";
 
 export default function Productos(){

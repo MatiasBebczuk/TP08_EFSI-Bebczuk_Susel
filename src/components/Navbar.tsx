@@ -3,14 +3,29 @@ import "./Navbar.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import CartWidget from "./CartWidget.jsx";
+import CartWidget from "./CartWidget.js";
+
+interface IProducto{
+    id: number,
+    thumbnail?: string,
+    title: string,
+    price: number,
+    category: string
+};
 
 function Navbar(){
-    const [categorias, setCategorias] = useState([]);
+    const [categorias, setCategorias] = useState<string[]>([]);
     useEffect(() => {
         async function fetch(){
             await axios.get("https://dummyjson.com/products")
-            .then(resp => setCategorias([...new Set(resp.data.products.map(el => el.category))]));
+            .then(resp => {
+                let data = resp.data.products.map((el: IProducto) => el.category);
+                data = data.filter(function(item: IProducto, pos: number) {
+                    return data.indexOf(item) == pos;
+                });
+
+                setCategorias(data);
+            });
         }
 
         fetch();

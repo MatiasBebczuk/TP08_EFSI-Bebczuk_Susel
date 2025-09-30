@@ -1,12 +1,12 @@
-import Layout from "./Layouts/Layout";
-import Home from "./pages/Home";
-import QuienesSomos from "./pages/QuienesSomos";
-import Contacto from "./pages/Contacto";
-import Productos from "./pages/Productos";
+import Layout from "./Layouts/Layout.tsx";
+import Home from "./pages/Home.tsx";
+import QuienesSomos from "./pages/QuienesSomos.tsx";
+import Contacto from "./pages/Contacto.tsx";
+import Productos from "./pages/Productos.tsx";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProductoDetalle from './pages/ProductoDetalle';
-import Categoria from "./pages/Categoria";
-import NotFound from "./pages/NotFound";
+import ProductoDetalle from './pages/ProductoDetalle.tsx';
+import Categoria from "./pages/Categoria.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
 export default function App() {
   return (
